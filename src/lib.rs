@@ -481,6 +481,6 @@ impl<'b, T: ?Sized + Debug + 'b> Debug for AtomicRefMut<'b, T> {
 
 impl<T: ?Sized + Debug> Debug for AtomicRefCell<T> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "AtomicRefCell {{ ... }}")
+        self.borrow().fmt(f)
     }
 }
